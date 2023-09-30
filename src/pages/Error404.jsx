@@ -6,7 +6,7 @@ export default function Error404() {
     <StyledContainer>
       <figure>
         <img
-          src="https://raw.githubusercontent.com/Blackpachamame/Blackpachamame.github.io/main/desafíos-oracle/aluraflix/src/assets/images/logo/404page.png"
+          src="https://raw.githubusercontent.com/Blackpachamame/aluraplus/main/src/assets/images/logo/404page.png"
           alt="error 404"
         />
       </figure>
