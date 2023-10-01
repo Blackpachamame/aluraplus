@@ -7,7 +7,7 @@ export default function Busqueda() {
       <StyledBusquedaForm>
         <StyledBusquedaInput name="search" placeholder="¿Qué buscas?" />
         <StyledBusquedaBtn>
-          <BsSearch style={{ fontSize: "1.5rem" }} />
+          <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />
         </StyledBusquedaBtn>
       </StyledBusquedaForm>
     </StyledBusqueda>

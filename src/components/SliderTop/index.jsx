@@ -18,7 +18,15 @@ export default function SliderTop() {
     <SliderContainer className="sliderTop">
       <Slider {...settings}>
         {banners.map((item) => {
-          return <StyledImg src={item.imgUrl} key={item.id} />;
+          return (
+            <StyledImg
+              src={item.imgUrl}
+              key={item.id}
+              width="100%"
+              height="100%"
+              alt=""
+            />
+          );
         })}
       </Slider>
     </SliderContainer>

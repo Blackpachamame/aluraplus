@@ -16,15 +16,6 @@ function buscandoAndo(videosUse, formaciones) {
 
 export default function Home({ videosUse, formaciones }) {
   const formacionesConteo = buscandoAndo(videosUse, formaciones);
-  // console.log(formacionesConteo[0]);
-  // formacionesConteo.forEach((element) => {
-  //   if (element.length < 3) {
-  // element.forEach((item) => {
-  //   console.log(item);
-  // });
-  //   console.log(element);
-  // }
-  // });
   return (
     <main>
       <SliderTop />

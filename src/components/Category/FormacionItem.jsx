@@ -11,7 +11,7 @@ function FormacionItem({ name, color, icon }) {
               backgroundColor: color + "30",
             }}
           >
-            <StyledLogo src={icon} alt={name} />
+            <img src={icon} alt={name} width={30} height={30} />
           </figure>
           <StyledNameCategory style={{ color: color }}>
             {name}
@@ -70,6 +70,13 @@ const StyledCategory = styled.div`
     background: none;
     border: none;
     box-shadow: none;
+    &:hover {
+      transform: translateY(2px);
+      box-shadow: rgba(0, 0, 0, 0.73) 0px 15px 5px -10px;
+    }
+    &:hover::before {
+      opacity: 0;
+    }
   }
 `;
 
@@ -86,11 +93,6 @@ const StyledCategoryLink = styled.a`
     align-items: center;
     justify-content: center;
   }
-`;
-
-const StyledLogo = styled.img`
-  width: 30px;
-  height: 30px;
 `;
 
 const StyledNameCategory = styled.h3`

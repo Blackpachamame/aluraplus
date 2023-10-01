@@ -16,6 +16,7 @@ export default function Footer() {
           href="https://github.com/Blackpachamame"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Ver github"
         >
           <BsGithub />
         </a>
@@ -23,6 +24,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/marcos-travaglini/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Ver linkedin"
         >
           <BsLinkedin />
         </a>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import avatar from "../../assets/images/logo/avatar-perfil.jpg";
 
 export default function Perfil() {
   const [toggle, setToggle] = useState(false);
@@ -30,7 +31,7 @@ export default function Perfil() {
   return (
     <StyledNavRight>
       <StyledContainerPerfil onClick={() => setToggle(!toggle)}>
-        <img src="https://static.vecteezy.com/system/resources/previews/004/819/323/non_2x/hipster-avatar-icon-of-bearded-man-in-glasses-vector.jpg" />
+        <img src={avatar} alt="Imagen de perfil" />
         {toggle ? (
           <StyledDropdown>
             {menu.map((item) => (

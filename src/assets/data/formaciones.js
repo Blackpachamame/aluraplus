@@ -1,10 +1,12 @@
 import { v4 as uuid } from 'uuid';
+import iconFront from "../../assets/images/icono/iconFrontend.svg";
+
 export const formaciones = [
     {
         id: uuid(),
         name: "Frontend",
         color: "#6bd1ff",
-        icon: "https://raw.githubusercontent.com/Blackpachamame/aluraplus/340ee3e0f85da15273f674eb9974aaaec1791415/src/assets/images/icono/iconFrontend.svg",
+        icon: { iconFront },
     },
     {
         id: uuid(),
