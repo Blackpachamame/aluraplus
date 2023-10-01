@@ -18,6 +18,7 @@ const FormFormacion = ({
     datosVideos ? datosFormaciones.color : ""
   );
   const [openModal, setOpenModal] = useState(false);
+
   const handleCrear = (evento) => {
     evento.preventDefault();
 
@@ -29,6 +30,7 @@ const FormFormacion = ({
     };
 
     agregarFormacion(datosAEnviar);
+    setOpenModal(true);
   };
 
   const handleEditar = (evento) => {
@@ -43,6 +45,7 @@ const FormFormacion = ({
 
     actualizarFormacion(datosAEditar);
     updateVideos();
+    setOpenModal(true);
   };
 
   function updateVideos() {
@@ -87,9 +90,7 @@ const FormFormacion = ({
           type="color"
           className="campo__color"
         />
-        <button className="boton" onClick={() => setOpenModal(true)}>
-          {datosVideos ? "Editar" : "Agregar"}
-        </button>
+        <button className="boton">{datosVideos ? "Editar" : "Agregar"}</button>
       </form>
       <Modal
         open={openModal}

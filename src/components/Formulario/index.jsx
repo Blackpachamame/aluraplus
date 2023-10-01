@@ -29,6 +29,7 @@ const Formulario = ({ formaciones, agregarVideo, actualizarVideo, datos }) => {
     };
 
     agregarVideo(datosAEnviar);
+    setOpenModal(true);
   };
 
   const handleEditar = (evento) => {
@@ -44,6 +45,7 @@ const Formulario = ({ formaciones, agregarVideo, actualizarVideo, datos }) => {
     };
 
     actualizarVideo(datosAEditar);
+    setOpenModal(true);
   };
 
   return (
@@ -83,9 +85,7 @@ const Formulario = ({ formaciones, agregarVideo, actualizarVideo, datos }) => {
           actualizarFormacion={updateFormacion}
           formaciones={formaciones}
         />
-        <button className="boton" onClick={() => setOpenModal(true)}>
-          {datos ? "Editar" : "Agregar"}
-        </button>
+        <button className="boton">{datos ? "Editar" : "Agregar"}</button>
       </form>
       <Modal
         open={openModal}
