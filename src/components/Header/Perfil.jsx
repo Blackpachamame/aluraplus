@@ -72,7 +72,7 @@ const StyledDropdown = styled.ul`
   position: absolute;
   top: 60px;
   right: 0;
-  z-index: 1;
+  z-index: 10;
   & li {
     font-family: var(--ff-title);
     font-weight: 600;
