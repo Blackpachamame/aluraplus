@@ -9,7 +9,7 @@ const SliderVideos = ({ formacion, videosUse }) => {
         id={formacion.name.replace(/\s+/g, "").toLowerCase()}
         color={formacion.color}
       >
-        <img src={formacion.icon} alt="" />
+        <img src={formacion.icon} alt="" width="30" height="30" />
         <span>{formacion.name}</span>
       </StyledTitle>
       <SliderComp formacion={formacion} videosUse={videosUse} />
@@ -52,9 +52,6 @@ const StyledTitle = styled.h2`
       var(--color-black-dark) 90%
     );
   }
-  img {
-    width: 30px;
-  }
   @media (max-width: 990px) {
     margin-bottom: 0;
     span {
@@ -62,6 +59,7 @@ const StyledTitle = styled.h2`
     }
     img {
       width: 24px;
+      height: 24px;
     }
   }
 `;

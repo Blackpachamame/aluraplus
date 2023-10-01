@@ -31,7 +31,7 @@ export default function Perfil() {
   return (
     <StyledNavRight>
       <StyledContainerPerfil onClick={() => setToggle(!toggle)}>
-        <img src={avatar} alt="Imagen de perfil" />
+        <img src={avatar} alt="Imagen de perfil" width="44" height="44" />
         {toggle ? (
           <StyledDropdown>
             {menu.map((item) => (
@@ -57,7 +57,6 @@ const StyledContainerPerfil = styled.div`
   height: 44px;
   position: relative;
   img {
-    width: 44px;
     border-radius: 100%;
     cursor: pointer;
   }

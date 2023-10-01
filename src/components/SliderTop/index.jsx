@@ -39,7 +39,8 @@ const SliderContainer = styled.section`
   margin: 0 auto;
   padding: 0 36px 32px;
   @media (max-width: 425px) {
-    padding: 0 16px 32px;
+    width: 100%;
+    padding: 0 6px 32px;
   }
 `;
 
