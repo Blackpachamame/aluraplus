@@ -5,7 +5,7 @@ export const formaciones = [
     id: uuid(),
     name: "Frontend",
     color: "#6bd1ff",
-    icon: "../../src/assets/images/icono/iconFrontend.svg",
+    icon: "https://raw.githubusercontent.com/Blackpachamame/aluraplus/340ee3e0f85da15273f674eb9974aaaec1791415/src/assets/images/icono/iconFrontend.svg",
   },
   {
     id: uuid(),
