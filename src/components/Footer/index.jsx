@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import logo from "../../assets/images/logo/logoAlura.svg";
-import logoCircle from "../../assets/images/logo/logoAluraCircle.svg";
+import { logo, logoCircle } from "../../assets/images";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {

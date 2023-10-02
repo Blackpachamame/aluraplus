@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "../../assets/images/logo/logoAlura.svg";
+import { logo } from "../../assets/images";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
 
 export default function Logo() {

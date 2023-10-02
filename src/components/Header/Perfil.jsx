@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import avatar from "../../assets/images/logo/avatar-perfil.jpg";
+import { avatar } from "../../assets/images";
 
 export default function Perfil() {
   const [toggle, setToggle] = useState(false);
