@@ -13,7 +13,14 @@ const SliderComp = ({ formacion, videosUse }) => {
       </Link>
     );
   });
+
   const longitudSlider = sliderProject.length;
+  const initialSlideLength = () => {
+    return longitudSlider < 2 ? 0 : 1;
+  };
+  const slidesToShowLength = () => {
+    return longitudSlider < 2 ? 1 : 2;
+  };
 
   var settings = {
     className: "center",
@@ -58,10 +65,17 @@ const SliderComp = ({ formacion, videosUse }) => {
     speed: 500,
     slidesToShow: longitudSlider,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: initialSlideLength(),
     arrows: true,
     focusOnSelect: true,
     responsive: [
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: slidesToShowLength(),
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 680,
         settings: {
@@ -74,6 +88,7 @@ const SliderComp = ({ formacion, videosUse }) => {
         settings: {
           centerMode: false,
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -81,7 +96,7 @@ const SliderComp = ({ formacion, videosUse }) => {
 
   return (
     <ContainerSlider>
-      {longitudSlider < 3 ? (
+      {longitudSlider < 4 ? (
         <Slider
           {...settingsShort}
           className={longitudSlider < 2 ? "center mini" : "center short"}
