@@ -46,8 +46,8 @@ const StyledLista = styled.div`
 `;
 
 const StyledSelect = styled.select`
-  --arrow-down: url(" ${(props) => props.$arrowDorw} ");
-  --arrow-down-focus: url(" ${(props) => props.$arrowDorwFocus} ");
+  --arrow-down: url("${(props) => props.$arrowDorw}");
+  --arrow-down-focus: url("${(props) => props.$arrowDorwFocus}");
   height: 60px;
   font-family: var(--ff-body);
   font-size: 16px;
@@ -64,7 +64,7 @@ const StyledSelect = styled.select`
   background-position: right 0.7rem top 50%;
   &:focus {
     border-bottom: 2px solid var(--color-secondary);
-    background-image: url(--arrow-down-focus);
+    background-image: var(--arrow-down-focus);
     outline: 0;
   }
   &:required:invalid {
