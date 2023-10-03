@@ -1,16 +1,12 @@
 # Aluraplus
 
-## Tabla de contenido
-
-- [Aluraplus](#aluraplus)
-  - [Tabla de contenido](#tabla-de-contenido)
-  - [Descripción](#descripción)
-    - [Desafío](#desafío)
-  - [Mi Procedimiento](#mi-procedimiento)
-    - [Construido con](#construido-con)
-    - [Lo que aprendí](#lo-que-aprendí)
-    - [Recursos útiles](#recursos-útiles)
-  - [Autor](#autor)
+- [Descripción](#descripción)
+  - [Desafío](#desafío)
+- [Mi Procedimiento](#mi-procedimiento)
+  - [Construido con](#construido-con)
+  - [Lo que aprendí](#lo-que-aprendí)
+  - [Recursos útiles](#recursos-útiles)
+- [Autor](#autor)
 
 ## Descripción
 
