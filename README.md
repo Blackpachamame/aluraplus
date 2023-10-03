@@ -1,5 +1,9 @@
 # Aluraplus
 
+<div align="center">
+  <img src="./src/assets/images/logo/preview.png"></img>
+</div>
+
 - [Descripción](#descripción)
   - [Desafío](#desafío)
 - [Mi Procedimiento](#mi-procedimiento)
