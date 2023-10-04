@@ -4,13 +4,14 @@
   <img src="./src/assets/images/logo/preview.png"></img>
 </div>
 
-- [Descripción](#descripción)
-  - [Desafío](#desafío)
-- [Mi Procedimiento](#mi-procedimiento)
-  - [Construido con](#construido-con)
-  - [Lo que aprendí](#lo-que-aprendí)
-  - [Recursos útiles](#recursos-útiles)
-- [Autor](#autor)
+- [Aluraplus](#aluraplus)
+  - [Descripción](#descripción)
+    - [Desafío](#desafío)
+  - [Mi Procedimiento](#mi-procedimiento)
+    - [Construido con](#construido-con)
+    - [Lo que aprendí](#lo-que-aprendí)
+    - [Recursos útiles](#recursos-útiles)
+  - [Autor](#autor)
 
 ## Descripción
 
