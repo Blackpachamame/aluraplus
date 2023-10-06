@@ -12,7 +12,7 @@ function obtenerFormacion(slice, formaciones) {
 export default function EditFormacion({
   videosUse,
   formaciones,
-  actualizarVideo,
+  actualizarFormacionVideo,
   actualizarFormacion,
 }) {
   const formacion = obtenerFormacion(18, formaciones)[0];
@@ -22,7 +22,7 @@ export default function EditFormacion({
       <h1>Editar Formacion</h1>
       <FormFormacion
         datosFormaciones={formacion}
-        actualizarVideo={actualizarVideo}
+        actualizarFormacionVideo={actualizarFormacionVideo}
         datosVideos={videosUse}
         actualizarFormacion={actualizarFormacion}
       />
@@ -52,6 +52,6 @@ const StyledMain = styled.main`
 EditFormacion.propTypes = {
   videosUse: PropTypes.array,
   formaciones: PropTypes.array,
-  actualizarVideo: PropTypes.func,
+  actualizarFormacionVideo: PropTypes.func,
   actualizarFormacion: PropTypes.func,
 };

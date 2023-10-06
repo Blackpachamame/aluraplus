@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const FormFormacion = ({
   agregarFormacion,
-  actualizarVideo,
+  actualizarFormacionVideo,
   datosVideos,
   datosFormaciones,
   actualizarFormacion,
@@ -49,19 +49,11 @@ const FormFormacion = ({
   };
 
   function updateVideos() {
-    for (let i = 0; i < datosVideos.length; i++) {
-      if (datosVideos[i].formacion === datosFormaciones.name) {
-        let datosAEditarVideo = {
-          id: datosVideos[i].id,
-          urlVideo: datosVideos[i].urlVideo,
-          imgVideo: datosVideos[i].imgVideo,
-          formacion: name,
-          title: datosVideos[i].title,
-          descripcion: datosVideos[i].descripcion,
-        };
-        actualizarVideo(datosAEditarVideo);
-      }
-    }
+    const videosAEditar = datosVideos.filter(
+      (video) => video.formacion === datosFormaciones.name
+    );
+    const formacion = name;
+    actualizarFormacionVideo(videosAEditar, formacion);
   }
 
   return (
@@ -159,7 +151,7 @@ const ContainerForm = styled.section`
 
 FormFormacion.propTypes = {
   agregarFormacion: PropTypes.func,
-  actualizarVideo: PropTypes.func,
+  actualizarFormacionVideo: PropTypes.func,
   datosVideos: PropTypes.array,
   datosFormaciones: PropTypes.object,
   actualizarFormacion: PropTypes.func,

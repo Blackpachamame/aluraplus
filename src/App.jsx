@@ -75,6 +75,14 @@ function App() {
     actualizarVideos(videosActualizados);
   };
 
+  //Actualizar formacion video
+  const actualizarFormacionVideo = (videosAEditar, formacion) => {
+    videosAEditar.forEach((video) => {
+      video.formacion = formacion;
+      actualizarVideo(video);
+    });
+  };
+
   //Agregar formacion
   const agregarFormacion = (nuevaFormacion) => {
     actualizarFormaciones([...formacionesUse, nuevaFormacion]);
@@ -172,7 +180,7 @@ function App() {
               <EditFormacion
                 videosUse={videosUse}
                 formaciones={formacionesUse}
-                actualizarVideo={actualizarVideo}
+                actualizarFormacionVideo={actualizarFormacionVideo}
                 actualizarFormacion={actualizarFormacion}
               />
             }
