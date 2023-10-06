@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Formulario from "../components/Formulario";
+import { Formulario } from "./../components";
 
 function obtenerVideo(slice, videos) {
   const url = new URL(window.location).pathname;

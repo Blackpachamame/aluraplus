@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-import SliderTop from "../components/SliderTop";
-import Category from "../components/Category";
-import SliderVideos from "../components/SliderVideos";
+import { Category, SliderTop, SliderVideos } from "./../components";
 
 function buscandoAndo(videosUse, formaciones) {
   const arregloPosta = [];

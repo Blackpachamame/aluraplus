@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Modal from "../components/Modal/index.jsx";
+import { Modal } from "./../components";
 import { BsPlayFill, BsFillHeartFill } from "react-icons/bs";
 
 function obtenerVideo(id, videos) {

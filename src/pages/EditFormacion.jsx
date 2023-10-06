@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import FormFormacion from "../components/Formulario/FormFormacion";
+import { FormFormacion } from "./../components";
 
 function obtenerFormacion(slice, formaciones) {
   const url = new URL(window.location).pathname;
