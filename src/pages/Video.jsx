@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Modal } from "./../components";
 import { BsPlayFill, BsFillHeartFill } from "react-icons/bs";
 
@@ -12,6 +12,11 @@ function obtenerVideo(id, videos) {
 
 export default function Video({ videosUse }) {
   const [openModal, setOpenModal] = useState(false);
+  let navigate = useNavigate();
+
+  let goBack = () => {
+    navigate(-1);
+  };
 
   const url = new URL(window.location).pathname;
   const id = url.slice(7);
@@ -32,9 +37,9 @@ export default function Video({ videosUse }) {
           <button className="video__ver" onClick={() => setOpenModal(true)}>
             <BsPlayFill /> Ver ahora
           </button>
-          <Link to="/" className="video__volver">
+          <button onClick={goBack} className="video__volver">
             Volver
-          </Link>
+          </button>
           <button className="video__favoritos">
             <BsFillHeartFill />
           </button>
