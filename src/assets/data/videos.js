@@ -35,7 +35,7 @@ export const videos = [
         formacion: "Frontend",
         title: "Como aplicar Dark Mode en tu proyecto",
         descripcion: "La funcionalidad conocida como Dark Mode está cada vez más popular, sendo encontrada en diversos tipos de aplicaciones, redes sociales, plataformas educacionales o de entretenimiento. En este Alura+, nuestro instructor Harland Lohora, nos enseña a como realizar estas aplicaciones en una página web. ",
-        favorito: false,
+        favorito: true,
     },
     {
         id: uuid(),
@@ -44,7 +44,7 @@ export const videos = [
         formacion: "Frontend",
         title: "¿Cuándo usar let, var y const?",
         descripcion: "¿A veces cuando estás programando sientes dificuldades en saber en qué momento utilizar let, var o const para declarar una variable? En este video te sacamos estas dudas, además de explicarte lo que es escopo global y local en JavaScript.",
-        favorito: false,
+        favorito: true,
     },
     {
         id: uuid(),
@@ -53,7 +53,7 @@ export const videos = [
         formacion: "Frontend",
         title: "¿Qué es JavaScript?",
         descripcion: "JavaScript: ¿qué es y cómo se hizo este lenguaje que genera muchas discusiones y debates entre la gente del área de desarrollo? Genesys y Gabriela nos hablan exactamente de esto en este Alura Tips.",
-        favorito: false,
+        favorito: true,
     },
     {
         id: uuid(),
