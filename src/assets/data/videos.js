@@ -136,7 +136,7 @@ export const videos = [
         formacion: "Devops",
         title: "Git Flow vs desarrollo basado en Trunk",
         descripcion: "Descubra cuáles son los sistemas de control de versiones de código de desarrollo basados ​​en Git Flow y Trunk, sus diferencias y qué flujo de trabajo es más adecuado para diferentes escenarios de entorno y ciclos de desarrollo para poner su código en producción. \nEn este #AluraMás tendrás una breve discusión con Fernanda sobre los modelos de control de versiones de desarrollo basados ​​en Git Flow y Trunk.",
-        favorito: false,
+        favorito: true,
     },
     {
         id: uuid(),

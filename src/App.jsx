@@ -129,7 +129,9 @@ function App() {
           {/* Favoritos */}
           <Route
             path="/favoritos"
-            element={<Favoritos videosUse={videosUse} />}
+            element={
+              <Favoritos videosUse={videosUse} formaciones={formacionesUse} />
+            }
           />
           {/* Videos */}
           <Route path="/video/:id" element={<Video videosUse={videosUse} />} />

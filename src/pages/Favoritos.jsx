@@ -1,24 +1,27 @@
-import { videos } from "./../assets/data/videos";
-import { formaciones } from "./../assets/data/formaciones";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Favoritos() {
+function colorFormacion(formaciones, video) {
+  const color = formaciones.find(
+    (formacion) => formacion.name === video.formacion
+  );
+  return color.color;
+}
+
+export default function Favoritos({ videosUse, formaciones }) {
   return (
-    <main>
+    <StyledMain>
       <h1>Favoritos</h1>
       <StyledContainer>
-        {videos.map((video) => {
+        {videosUse.map((video) => {
           return (
             video.favorito && (
               <div key={video.id}>
                 <Link to={`/video/${video.id}`}>
                   <StyledFigure
                     className="project"
-                    $bgColor={formaciones.forEach(
-                      (formacion) =>
-                        formacion.name === video.formacion && formacion.color
-                    )}
+                    $bgColor={colorFormacion(formaciones, video)}
                   >
                     <img src={video.imgVideo} alt={video.title} />
                   </StyledFigure>
@@ -28,9 +31,28 @@ export default function Favoritos() {
           );
         })}
       </StyledContainer>
-    </main>
+    </StyledMain>
   );
 }
+
+const StyledMain = styled.main`
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  h1 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  @media (max-width: 425px) {
+    padding: 16px;
+  }
+  @media (max-width: 375px) {
+    padding: 16px 0;
+  }
+`;
 
 const StyledContainer = styled.div`
   display: flex;
@@ -55,3 +77,8 @@ const StyledFigure = styled.figure`
     transition: transform 400ms ease-in-out;
   }
 `;
+
+Favoritos.propTypes = {
+  videosUse: PropTypes.array,
+  formaciones: PropTypes.array,
+};
