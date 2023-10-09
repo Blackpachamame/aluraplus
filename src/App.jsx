@@ -69,6 +69,7 @@ function App() {
             formacion: videoActualizado.formacion,
             title: videoActualizado.title,
             descripcion: videoActualizado.descripcion,
+            favorito: videoActualizado.favorito,
           }
         : video
     );
@@ -81,6 +82,12 @@ function App() {
       video.formacion = formacion;
       actualizarVideo(video);
     });
+  };
+
+  //Actualizar fav video
+  const actualizarFav = (video, favorito) => {
+    video.favorito = favorito;
+    actualizarVideo(video);
   };
 
   //Agregar formacion
@@ -134,7 +141,12 @@ function App() {
             }
           />
           {/* Videos */}
-          <Route path="/video/:id" element={<Video videosUse={videosUse} />} />
+          <Route
+            path="/video/:id"
+            element={
+              <Video videosUse={videosUse} actualizarFav={actualizarFav} />
+            }
+          />
           <Route
             path="/video/lista"
             element={

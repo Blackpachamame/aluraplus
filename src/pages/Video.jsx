@@ -3,24 +3,31 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "./../components";
-import { BsPlayFill, BsFillHeartFill } from "react-icons/bs";
+import { BsPlayFill, BsFillHeartFill, BsHeart } from "react-icons/bs";
 
 function obtenerVideo(id, videos) {
   const unVideo = videos.filter((video) => video.id === id);
   return unVideo;
 }
 
-export default function Video({ videosUse }) {
-  const [openModal, setOpenModal] = useState(false);
-  let navigate = useNavigate();
+export default function Video({ videosUse, actualizarFav }) {
+  const url = new URL(window.location).pathname;
+  const id = url.slice(7);
+  const video = obtenerVideo(id, videosUse)[0];
+  const favorito = video.favorito;
 
+  const [openModal, setOpenModal] = useState(false);
+
+  function toggleFav(video, fav) {
+    actualizarFav(video, !fav);
+  }
+  console.log(video);
+
+  let navigate = useNavigate();
   let goBack = () => {
     navigate(-1);
   };
 
-  const url = new URL(window.location).pathname;
-  const id = url.slice(7);
-  const video = obtenerVideo(id, videosUse)[0];
   return (
     <StyledContainer>
       <Modal
@@ -40,8 +47,11 @@ export default function Video({ videosUse }) {
           <button onClick={goBack} className="video__volver">
             Volver
           </button>
-          <button className="video__favoritos">
-            <BsFillHeartFill />
+          <button
+            className="video__favoritos"
+            onClick={() => toggleFav(video, favorito)}
+          >
+            {favorito ? <BsFillHeartFill /> : <BsHeart />}
           </button>
         </ContainerButtons>
       </div>
@@ -154,4 +164,5 @@ const ContainerButtons = styled.div`
 
 Video.propTypes = {
   videosUse: PropTypes.array,
+  actualizarFav: PropTypes.func,
 };
