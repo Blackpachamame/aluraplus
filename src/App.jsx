@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import { Header, Footer, FormBusqueda } from "./components";
+import { Header, Footer, Busqueda, ListBusqueda } from "./components";
 import {
-  Busqueda,
   ListVideos,
   Home,
   Favoritos,
@@ -26,6 +25,8 @@ function App() {
   const mostrarBarraBusqueda = () => {
     setToggleSearch(!toggleSearch);
   };
+
+  const [results, setResults] = useState([]);
 
   const [videosUse, actualizarVideos] = useState(getInitialVideos);
   const [formacionesUse, actualizarFormaciones] = useState(
@@ -125,7 +126,8 @@ function App() {
     >
       <GlobalStyle />
       <BrowserRouter>
-        <FormBusqueda />
+        <Busqueda videosUse={videosUse} setResults={setResults} />
+        {results && results.length > 0 && <ListBusqueda results={results} />}
         <Header mostrarBarraBusqueda={mostrarBarraBusqueda} />
         <Routes>
           {/* Home */}
@@ -133,13 +135,6 @@ function App() {
             path="/"
             element={
               <Home videosUse={videosUse} formaciones={formacionesUse} />
-            }
-          />
-          {/* Búsqueda */}
-          <Route
-            path="/busqueda"
-            element={
-              <Busqueda videosUse={videosUse} formaciones={formacionesUse} />
             }
           />
           {/* Favoritos */}

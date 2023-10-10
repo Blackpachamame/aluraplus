@@ -21,7 +21,6 @@ export default function Video({ videosUse, actualizarFav }) {
   function toggleFav(video, fav) {
     actualizarFav(video, !fav);
   }
-  console.log(video);
 
   let navigate = useNavigate();
   let goBack = () => {

@@ -8,8 +8,7 @@ import Home from "./Home";
 import ListFormaciones from "./ListFormaciones";
 import ListVideos from "./ListVideos";
 import Video from "./Video";
-import Busqueda from "./Busqueda";
 
 export {
-    Busqueda, ListVideos, Home, Favoritos, Video, ListFormaciones, AddVideo, EditVideo, Error404, AddFormacion, EditFormacion,
+    ListVideos, Home, Favoritos, Video, ListFormaciones, AddVideo, EditVideo, Error404, AddFormacion, EditFormacion,
 }
