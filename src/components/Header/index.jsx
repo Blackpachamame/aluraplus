@@ -4,14 +4,12 @@ import styled from "styled-components";
 import HeaderItem from "./HeaderItem";
 import Logo from "./Logo";
 import Perfil from "./Perfil";
-import Busqueda from "./Busqueda";
 
 const Header = ({ mostrarBarraBusqueda }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <StyledHeader>
-      <Busqueda />
       <nav>
         <div>
           <Logo />

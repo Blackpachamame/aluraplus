@@ -1,11 +1,22 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 
-export default function Busqueda() {
+export default function FormBusqueda() {
+  const [search, setSearch] = useState("");
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <StyledBusqueda>
       <StyledBusquedaForm>
-        <StyledBusquedaInput name="search" placeholder="¿Qué buscas?" />
+        <StyledBusquedaInput
+          name="search"
+          placeholder="¿Qué buscas?"
+          valor={search}
+          onChange={handleChange}
+        />
         <StyledBusquedaBtn>
           <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />
         </StyledBusquedaBtn>

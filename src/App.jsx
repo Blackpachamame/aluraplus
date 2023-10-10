@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import { Header, Footer } from "./components";
+import { Header, Footer, FormBusqueda } from "./components";
 import {
+  Busqueda,
   ListVideos,
   Home,
   Favoritos,
@@ -124,6 +125,7 @@ function App() {
     >
       <GlobalStyle />
       <BrowserRouter>
+        <FormBusqueda />
         <Header mostrarBarraBusqueda={mostrarBarraBusqueda} />
         <Routes>
           {/* Home */}
@@ -131,6 +133,13 @@ function App() {
             path="/"
             element={
               <Home videosUse={videosUse} formaciones={formacionesUse} />
+            }
+          />
+          {/* Búsqueda */}
+          <Route
+            path="/busqueda"
+            element={
+              <Busqueda videosUse={videosUse} formaciones={formacionesUse} />
             }
           />
           {/* Favoritos */}

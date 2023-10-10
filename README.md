@@ -24,7 +24,7 @@ Sus usuarios deberían poder:
 - Ver el diseño óptimo según el tamaño de la pantalla de su dispositivo
 - Ver estados de desplazamiento para elementos interactivos
 - Agregar, editar y borrar videos o formaciones
-- Marcar videos como favoritos (pendiente)
+- Marcar videos como favoritos
 - Realizar una búsqueda (pendiente)
 
 ## Mi Procedimiento
