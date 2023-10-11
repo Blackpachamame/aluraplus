@@ -9,7 +9,6 @@ export default function Busqueda({ videosUse, setResults }) {
   const handleChange = (e) => {
     const valorInput = e.target.value;
     setBusqueda(valorInput);
-    console.log(valorInput.length);
     const filteredVideos =
       valorInput.length > 0
         ? videosUse.filter((video) =>
@@ -17,6 +16,13 @@ export default function Busqueda({ videosUse, setResults }) {
           )
         : [];
     setResults(filteredVideos);
+  };
+
+  const handleBlur = () => {
+    const valorSearch = "";
+    setBusqueda(valorSearch);
+    // const filteredVideos = [];
+    // setResults(filteredVideos);
   };
 
   return (
@@ -27,6 +33,7 @@ export default function Busqueda({ videosUse, setResults }) {
           placeholder="¿Qué buscas?"
           value={busqueda}
           onChange={(e) => handleChange(e)}
+          onBlur={() => handleBlur()}
           type="search"
         />
         <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />

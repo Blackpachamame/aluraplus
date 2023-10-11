@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import HeaderItem from "./HeaderItem";
@@ -7,6 +7,21 @@ import Perfil from "./Perfil";
 
 const Header = ({ mostrarBarraBusqueda }) => {
   const [toggle, setToggle] = useState(false);
+  let menuResponsive = useRef();
+
+  useEffect(() => {
+    let handleMenuDownResponsive = (e) => {
+      if (!menuResponsive.current.contains(e.target)) {
+        setToggle(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleMenuDownResponsive);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMenuDownResponsive);
+    };
+  });
 
   return (
     <StyledHeader>
@@ -19,7 +34,7 @@ const Header = ({ mostrarBarraBusqueda }) => {
               iconDotsVertical="false"
             />
           </StyledUnorderedList>
-          <StyledUnorderedListResponsive>
+          <StyledUnorderedListResponsive ref={menuResponsive}>
             <StyledToggle onClick={() => setToggle(!toggle)}>
               <HeaderItem
                 mostrarBarraBusqueda={mostrarBarraBusqueda}

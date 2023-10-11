@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { avatar } from "../../assets/images";
 
 export default function Perfil() {
-  const [toggle, setToggle] = useState(false);
+  const [openPerfil, setOpenPerfil] = useState(false);
+
+  let menuRef = useRef();
+
+  useEffect(() => {
+    let handleMenuPerfil = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setOpenPerfil(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleMenuPerfil);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMenuPerfil);
+    };
+  });
+
   const menu = [
     {
       name: "Videos",
@@ -29,10 +46,10 @@ export default function Perfil() {
   ];
 
   return (
-    <StyledNavRight>
-      <StyledContainerPerfil onClick={() => setToggle(!toggle)}>
+    <StyledNavRight ref={menuRef}>
+      <StyledContainerPerfil onClick={() => setOpenPerfil(!openPerfil)}>
         <img src={avatar} alt="Imagen de perfil" width="44" height="44" />
-        {toggle ? (
+        {openPerfil ? (
           <StyledDropdown>
             {menu.map((item) => (
               <li key={item.name}>
