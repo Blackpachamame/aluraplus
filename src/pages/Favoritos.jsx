@@ -9,27 +9,39 @@ function colorFormacion(formaciones, video) {
   return color.color;
 }
 
+function filtrarFavoritos(videos) {
+  const favoritos = videos.filter((video) => video.favorito === true);
+  return favoritos;
+}
+
 export default function Favoritos({ videosUse, formaciones }) {
+  const arrayFavoritos = filtrarFavoritos(videosUse);
   return (
     <StyledMain>
       <h1>Favoritos</h1>
-      <StyledContainer>
-        {videosUse.map((video) => {
-          return (
-            video.favorito && (
-              <div key={video.id}>
-                <Link to={`/video/${video.id}`}>
-                  <StyledFigure
-                    className="project"
-                    $bgColor={colorFormacion(formaciones, video)}
-                  >
-                    <img src={video.imgVideo} alt={video.title} />
-                  </StyledFigure>
-                </Link>
-              </div>
-            )
-          );
-        })}
+      <StyledContainer
+        className={arrayFavoritos.length > 0 ? "container__favoritos" : ""}
+      >
+        {arrayFavoritos.length > 0 ? (
+          videosUse.map((video) => {
+            return (
+              video.favorito && (
+                <div key={video.id}>
+                  <Link to={`/video/${video.id}`}>
+                    <StyledFigure
+                      className="project"
+                      $bgColor={colorFormacion(formaciones, video)}
+                    >
+                      <img src={video.imgVideo} alt={video.title} />
+                    </StyledFigure>
+                  </Link>
+                </div>
+              )
+            );
+          })
+        ) : (
+          <h5>Aun no añadiste favoritos</h5>
+        )}
       </StyledContainer>
     </StyledMain>
   );
@@ -49,19 +61,21 @@ const StyledMain = styled.main`
   @media (max-width: 425px) {
     padding: 16px;
   }
-  @media (max-width: 375px) {
-    padding: 16px 0;
-  }
 `;
 
 const StyledContainer = styled.div`
-  display: flex;
+  width: 100%;
+  text-align: center;
+  &.container__favoritos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
 `;
 
 const StyledFigure = styled.figure`
   --bg-color: ${(props) => props.$bgColor};
   background-color: var(--color-black-dark);
-  margin: 0 0.5rem;
   padding: 0.2rem;
   border-radius: 4px;
   border: 2px solid var(--bg-color);

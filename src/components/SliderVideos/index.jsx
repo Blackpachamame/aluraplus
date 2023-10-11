@@ -25,7 +25,7 @@ const Container = styled.section`
   padding: 16px 36px;
   position: relative;
   @media (max-width: 425px) {
-    padding: 16px;
+    padding: 16px 16px 0;
   }
 `;
 

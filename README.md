@@ -53,6 +53,7 @@ Sus usuarios deberían poder:
 - [Guía de Vite para principiantes](https://youtu.be/YEQ-uMGpQMY?si=IzD57XHDQGJMhkNQ) - FalconMasters.
 - [Dominando o Styled Components REACT](https://reactrouter.com/en/main) - Front Beginners.
 - [Working with React slick slider in React js and styled-components](https://reactrouter.com/en/main) - Milad Tech.
+- [Dropdown-Menu-in-React](https://youtu.be/HfZ7pdhS43s?si=VdshPytuxuiBMFkd) - TK - Click Outside to Close - React Hook.
 
 ## Autor
 
