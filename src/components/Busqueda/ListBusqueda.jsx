@@ -1,12 +1,31 @@
 import PropTypes from "prop-types";
-import ResultBusqueda from "./ResultBusqueda";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ListBusqueda = ({ results }) => {
+const ListBusqueda = ({
+  results,
+  setResults,
+  setBusqueda,
+  setToggleSearch,
+}) => {
+  const handleLink = () => {
+    setResults([]);
+    setBusqueda("");
+    setToggleSearch(false);
+  };
+
   return (
     <StyledResult>
       {results.map((result) => {
-        return <ResultBusqueda result={result} key={result.id} />;
+        return (
+          <Link
+            to={`/video/${result.id}`}
+            key={result.id}
+            onClick={() => handleLink()}
+          >
+            {result.title}
+          </Link>
+        );
       })}
     </StyledResult>
   );
@@ -22,8 +41,19 @@ const StyledResult = styled.div`
   border-bottom: 2px dotted var(--color-secondary);
   max-height: 300px;
   overflow-y: auto;
+  a {
+    width: 100%;
+    color: var(--color-primary);
+    padding: 10px 20px;
+    &:hover {
+      background-color: var(--color-black-medium);
+    }
+  }
 `;
 
 ListBusqueda.propTypes = {
   results: PropTypes.array,
+  setResults: PropTypes.func,
+  setBusqueda: PropTypes.func,
+  setToggleSearch: PropTypes.func,
 };

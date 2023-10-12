@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import ListBusqueda from "./ListBusqueda";
 import { BsSearch } from "react-icons/bs";
 
-export default function Busqueda({ videosUse, setResults }) {
+export default function Busqueda({ videosUse, toggleSearch, setToggleSearch }) {
   const [busqueda, setBusqueda] = useState("");
+  const [results, setResults] = useState([]);
+
+  let searchRef = useRef();
+
+  useEffect(() => {
+    let handleMenuPerfil = (e) => {
+      if (!searchRef.current.contains(e.target)) {
+        setToggleSearch(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleMenuPerfil);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMenuPerfil);
+    };
+  });
 
   const handleChange = (e) => {
     const valorInput = e.target.value;
@@ -18,27 +36,30 @@ export default function Busqueda({ videosUse, setResults }) {
     setResults(filteredVideos);
   };
 
-  const handleBlur = () => {
-    const valorSearch = "";
-    setBusqueda(valorSearch);
-    // const filteredVideos = [];
-    // setResults(filteredVideos);
-  };
-
   return (
-    <StyledBusqueda>
-      <ContainerInput>
-        <input
-          name="search"
-          placeholder="¿Qué buscas?"
-          value={busqueda}
-          onChange={(e) => handleChange(e)}
-          onBlur={() => handleBlur()}
-          type="search"
+    <div ref={searchRef}>
+      <StyledBusqueda>
+        <ContainerInput>
+          <input
+            name="search"
+            placeholder="¿Qué buscas?"
+            value={busqueda}
+            onChange={(e) => handleChange(e)}
+            type="search"
+          />
+          <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />
+        </ContainerInput>
+      </StyledBusqueda>
+
+      {results && results.length > 0 && toggleSearch && (
+        <ListBusqueda
+          results={results}
+          setResults={setResults}
+          setBusqueda={setBusqueda}
+          setToggleSearch={setToggleSearch}
         />
-        <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />
-      </ContainerInput>
-    </StyledBusqueda>
+      )}
+    </div>
   );
 }
 
@@ -81,5 +102,6 @@ const ContainerInput = styled.div`
 
 Busqueda.propTypes = {
   videosUse: PropTypes.array,
-  setResults: PropTypes.func,
+  toggleSearch: PropTypes.bool,
+  setToggleSearch: PropTypes.func,
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import { Header, Footer, Busqueda, ListBusqueda } from "./components";
+import { Header, Footer, Busqueda } from "./components";
 import {
   ListVideos,
   Home,
@@ -25,8 +25,6 @@ function App() {
   const mostrarBarraBusqueda = () => {
     setToggleSearch(!toggleSearch);
   };
-
-  const [results, setResults] = useState([]);
 
   const [videosUse, actualizarVideos] = useState(getInitialVideos);
   const [formacionesUse, actualizarFormaciones] = useState(
@@ -126,8 +124,11 @@ function App() {
     >
       <GlobalStyle />
       <BrowserRouter>
-        <Busqueda videosUse={videosUse} setResults={setResults} />
-        {results && results.length > 0 && <ListBusqueda results={results} />}
+        <Busqueda
+          videosUse={videosUse}
+          toggleSearch={toggleSearch}
+          setToggleSearch={setToggleSearch}
+        />
         <Header mostrarBarraBusqueda={mostrarBarraBusqueda} />
         <Routes>
           {/* Home */}
