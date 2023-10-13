@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import SliderComp from "./Slider";
+import SliderComp from "./SliderComp";
 
-const SliderVideos = ({ formacion, videosUse }) => {
+const SliderVideos = ({ formacion, videosFormacion }) => {
   return (
     <Container className="slider__videos">
       <StyledTitle
@@ -12,7 +12,7 @@ const SliderVideos = ({ formacion, videosUse }) => {
         <img src={formacion.icon} alt="" width="30" height="30" />
         <span>{formacion.name}</span>
       </StyledTitle>
-      <SliderComp formacion={formacion} videosUse={videosUse} />
+      <SliderComp formacion={formacion} videosFormacion={videosFormacion} />
     </Container>
   );
 };
@@ -71,5 +71,5 @@ SliderVideos.propTypes = {
     icon: PropTypes.string,
     color: PropTypes.string,
   }),
-  videosUse: PropTypes.array,
+  videosFormacion: PropTypes.array,
 };

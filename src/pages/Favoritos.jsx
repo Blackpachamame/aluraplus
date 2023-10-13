@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -15,7 +16,8 @@ function filtrarFavoritos(videos) {
   return favoritos;
 }
 
-export default function Favoritos({ videosUse, formaciones }) {
+export default function Favoritos() {
+  const { videosUse, formacionesUse } = useContext(MainContext);
   const arrayFavoritos = filtrarFavoritos(videosUse);
   return (
     <StyledMain
@@ -36,7 +38,7 @@ export default function Favoritos({ videosUse, formaciones }) {
                   <Link to={`/video/${video.id}`}>
                     <StyledFigure
                       className="project"
-                      $bgColor={colorFormacion(formaciones, video)}
+                      $bgColor={colorFormacion(formacionesUse, video)}
                     >
                       <img src={video.imgVideo} alt={video.title} />
                     </StyledFigure>
@@ -97,8 +99,3 @@ const StyledFigure = styled.figure`
     transition: transform 400ms ease-in-out;
   }
 `;
-
-Favoritos.propTypes = {
-  videosUse: PropTypes.array,
-  formaciones: PropTypes.array,
-};

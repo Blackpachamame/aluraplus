@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Formulario } from "./../components";
 import { motion } from "framer-motion";
 
-export default function AddVideo({ agregarVideo, formaciones }) {
+export default function AddVideo() {
   return (
     <StyledMain
       as={motion.main}
@@ -12,7 +11,7 @@ export default function AddVideo({ agregarVideo, formaciones }) {
       exit={{ opacity: 0 }}
     >
       <h1>Agregar Video</h1>
-      <Formulario formaciones={formaciones} agregarVideo={agregarVideo} />
+      <Formulario />
     </StyledMain>
   );
 }
@@ -35,8 +34,3 @@ const StyledMain = styled.main`
     padding: 16px 0;
   }
 `;
-
-AddVideo.propTypes = {
-  agregarVideo: PropTypes.func,
-  formaciones: PropTypes.array,
-};

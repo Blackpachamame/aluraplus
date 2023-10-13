@@ -1,10 +1,12 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BsPencilFill, BsTrashFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 
-export default function ListVideos({ videosUse, eliminarVideo }) {
+export default function ListVideos() {
+  const { videosUse, eliminarVideo } = useContext(MainContext);
   return (
     <StyledMain
       as={motion.main}
@@ -153,8 +155,3 @@ const ContainerAcciones = styled.td`
     }
   }
 `;
-
-ListVideos.propTypes = {
-  videosUse: PropTypes.array,
-  eliminarVideo: PropTypes.func,
-};

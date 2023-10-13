@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { MainContext } from "./../../context/MainContext";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { arrowDown, arrowDownFocus } from "../../assets/images";
 
-const ListaOpciones = ({ valor, actualizarFormacion, formaciones }) => {
+const ListaOpciones = ({ valor, actualizarFormacion }) => {
+  const { formacionesUse } = useContext(MainContext);
   const manejarCambio = (e) => {
     actualizarFormacion(e.target.value);
   };
@@ -22,7 +25,7 @@ const ListaOpciones = ({ valor, actualizarFormacion, formaciones }) => {
         <option value="" disabled defaultValue="" hidden>
           Seleccionar formación
         </option>
-        {formaciones.map((formacion) => (
+        {formacionesUse.map((formacion) => (
           <option key={formacion.id} value={formacion.name}>
             {formacion.name}
           </option>
@@ -78,5 +81,4 @@ const StyledSelect = styled.select`
 ListaOpciones.propTypes = {
   valor: PropTypes.string,
   actualizarFormacion: PropTypes.func,
-  formaciones: PropTypes.array,
 };

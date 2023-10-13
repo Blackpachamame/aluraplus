@@ -1,11 +1,13 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../../context/MainContext";
 import styled from "styled-components";
 import FormacionItem from "./FormacionItem";
 
-export default function Category({ formaciones }) {
+export default function Category() {
+  const { formacionesUse } = useContext(MainContext);
   return (
     <CategoryContainer>
-      {formaciones.map((item) => {
+      {formacionesUse.map((item) => {
         return (
           <FormacionItem
             key={item.id}
@@ -30,7 +32,3 @@ const CategoryContainer = styled.section`
     padding: 16px;
   }
 `;
-
-Category.propTypes = {
-  formaciones: PropTypes.array,
-};

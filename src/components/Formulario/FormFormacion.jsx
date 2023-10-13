@@ -1,22 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MainContext } from "./../../context/MainContext";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Campo from "./Campo";
 import Modal from "../Modal";
 import { v4 as uuidv4 } from "uuid";
 
-const FormFormacion = ({
-  agregarFormacion,
-  actualizarFormacionVideo,
-  datosVideos,
-  datosFormaciones,
-  actualizarFormacion,
-}) => {
-  const [icon, updateIcon] = useState(datosVideos ? datosFormaciones.icon : "");
-  const [name, updateName] = useState(datosVideos ? datosFormaciones.name : "");
-  const [color, updateColor] = useState(
-    datosVideos ? datosFormaciones.color : ""
-  );
+const FormFormacion = ({ editar, datosDeFormacion }) => {
+  const {
+    agregarFormacion,
+    actualizarFormacionVideo,
+    videosUse,
+    actualizarFormacion,
+  } = useContext(MainContext);
+  const [icon, updateIcon] = useState(editar ? datosDeFormacion.icon : "");
+  const [name, updateName] = useState(editar ? datosDeFormacion.name : "");
+  const [color, updateColor] = useState(editar ? datosDeFormacion.color : "");
   const [openModal, setOpenModal] = useState(false);
 
   const handleCrear = (evento) => {
@@ -37,7 +36,7 @@ const FormFormacion = ({
     evento.preventDefault();
 
     let datosAEditar = {
-      id: datosFormaciones.id,
+      id: datosDeFormacion.id,
       name,
       icon,
       color,
@@ -49,8 +48,8 @@ const FormFormacion = ({
   };
 
   function updateVideos() {
-    const videosAEditar = datosVideos.filter(
-      (video) => video.formacion === datosFormaciones.name
+    const videosAEditar = videosUse.filter(
+      (video) => video.formacion === datosDeFormacion.name
     );
     const formacion = name;
     actualizarFormacionVideo(videosAEditar, formacion);
@@ -58,7 +57,7 @@ const FormFormacion = ({
 
   return (
     <ContainerForm>
-      <form onSubmit={datosVideos ? handleEditar : handleCrear}>
+      <form onSubmit={editar ? handleEditar : handleCrear}>
         <Campo
           label="Icono"
           placeholder="Url del icono"
@@ -82,18 +81,18 @@ const FormFormacion = ({
           type="color"
           className="campo__color"
         />
-        <button className="boton">{datosVideos ? "Editar" : "Agregar"}</button>
+        <button className="boton">{editar ? "Editar" : "Agregar"}</button>
       </form>
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
         tipo={"formacion"}
         text={
-          datosVideos
+          editar
             ? "Datos editados correctamente"
             : "Formacion agregada correctamente"
         }
-        editado={datosVideos ? true : false}
+        editado={editar ? true : false}
       />
     </ContainerForm>
   );
@@ -150,9 +149,6 @@ const ContainerForm = styled.section`
 `;
 
 FormFormacion.propTypes = {
-  agregarFormacion: PropTypes.func,
-  actualizarFormacionVideo: PropTypes.func,
-  datosVideos: PropTypes.array,
-  datosFormaciones: PropTypes.object,
-  actualizarFormacion: PropTypes.func,
+  editar: PropTypes.bool,
+  datosDeFormacion: PropTypes.object,
 };

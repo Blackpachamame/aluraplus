@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FormFormacion } from "./../components";
 import { motion } from "framer-motion";
 
-export default function AddFormacion({ agregarFormacion }) {
+export default function AddFormacion() {
   return (
     <StyledMain
       as={motion.main}
@@ -12,7 +11,7 @@ export default function AddFormacion({ agregarFormacion }) {
       exit={{ opacity: 0 }}
     >
       <h1>Agregar Formación</h1>
-      <FormFormacion agregarFormacion={agregarFormacion} />
+      <FormFormacion editar={false} />
     </StyledMain>
   );
 }
@@ -35,7 +34,3 @@ const StyledMain = styled.main`
     padding: 16px 0;
   }
 `;
-
-AddFormacion.propTypes = {
-  agregarFormacion: PropTypes.func,
-};

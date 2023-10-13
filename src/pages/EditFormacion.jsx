@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import styled from "styled-components";
 import { FormFormacion } from "./../components";
 import { motion } from "framer-motion";
@@ -10,13 +11,9 @@ function obtenerFormacion(slice, formaciones) {
   return unaFormacion;
 }
 
-export default function EditFormacion({
-  videosUse,
-  formaciones,
-  actualizarFormacionVideo,
-  actualizarFormacion,
-}) {
-  const formacion = obtenerFormacion(18, formaciones)[0];
+export default function EditFormacion() {
+  const { formacionesUse } = useContext(MainContext);
+  const formacion = obtenerFormacion(18, formacionesUse)[0];
 
   return (
     <StyledMain
@@ -26,12 +23,7 @@ export default function EditFormacion({
       exit={{ opacity: 0 }}
     >
       <h1>Editar Formacion</h1>
-      <FormFormacion
-        datosFormaciones={formacion}
-        actualizarFormacionVideo={actualizarFormacionVideo}
-        datosVideos={videosUse}
-        actualizarFormacion={actualizarFormacion}
-      />
+      <FormFormacion datosDeFormacion={formacion} />
     </StyledMain>
   );
 }
@@ -54,10 +46,3 @@ const StyledMain = styled.main`
     padding: 16px 0;
   }
 `;
-
-EditFormacion.propTypes = {
-  videosUse: PropTypes.array,
-  formaciones: PropTypes.array,
-  actualizarFormacionVideo: PropTypes.func,
-  actualizarFormacion: PropTypes.func,
-};

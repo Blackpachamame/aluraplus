@@ -1,20 +1,25 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import { Category, SliderTop, SliderVideos } from "./../components";
 import { motion } from "framer-motion";
 
-function buscandoAndo(videosUse, formaciones) {
-  const arregloPosta = [];
+function separarVideosPorFormacion(videos, formaciones) {
+  const videosPorFormacion = [];
   formaciones.map((formacion) => {
-    const prueba = videosUse.filter(
+    const videosFiltrados = videos.filter(
       (video) => video.formacion === formacion.name
     );
-    arregloPosta.push(prueba);
+    videosPorFormacion.push(videosFiltrados);
   });
-  return arregloPosta;
+  return videosPorFormacion;
 }
 
-export default function Home({ videosUse, formaciones }) {
-  const formacionesConteo = buscandoAndo(videosUse, formaciones);
+export default function Home() {
+  const { videosUse, formacionesUse } = useContext(MainContext);
+  const formacionesConteo = separarVideosPorFormacion(
+    videosUse,
+    formacionesUse
+  );
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -22,19 +27,14 @@ export default function Home({ videosUse, formaciones }) {
       exit={{ opacity: 0 }}
     >
       <SliderTop />
-      <Category formaciones={formaciones} />
-      {formaciones.map((item, i) => (
+      <Category />
+      {formacionesUse.map((item, i) => (
         <SliderVideos
           key={i}
           formacion={item}
-          videosUse={formacionesConteo[i]}
+          videosFormacion={formacionesConteo[i]}
         />
       ))}
     </motion.main>
   );
 }
-
-Home.propTypes = {
-  videosUse: PropTypes.array,
-  formaciones: PropTypes.array,
-};

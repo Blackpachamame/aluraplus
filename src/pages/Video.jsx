@@ -1,5 +1,5 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useState, useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "./../components";
@@ -11,11 +11,12 @@ function obtenerVideo(id, videos) {
   return unVideo;
 }
 
-export default function Video({ videosUse, actualizarFav }) {
+export default function Video() {
+  const { videosUse, actualizarFav } = useContext(MainContext);
   const url = new URL(window.location).pathname;
   const id = url.slice(7);
   const video = obtenerVideo(id, videosUse)[0];
-  const favorito = video.favorito;
+  const favorito = video?.favorito;
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -38,13 +39,13 @@ export default function Video({ videosUse, actualizarFav }) {
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        url={video.urlVideo}
+        url={video?.urlVideo}
         tipo="video"
       />
       <div className="video__descripcion">
-        <div className="video__formacion">{video.formacion}</div>
-        <h1>{video.title}</h1>
-        <p>{video.descripcion}</p>
+        <div className="video__formacion">{video?.formacion}</div>
+        <h1>{video?.title}</h1>
+        <p>{video?.descripcion}</p>
         <ContainerButtons>
           <button className="video__ver" onClick={() => setOpenModal(true)}>
             <BsPlayFill /> Ver ahora
@@ -166,8 +167,3 @@ const ContainerButtons = styled.div`
     }
   }
 `;
-
-Video.propTypes = {
-  videosUse: PropTypes.array,
-  actualizarFav: PropTypes.func,
-};

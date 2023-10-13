@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MainContext } from "./../../context/MainContext";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Campo from "./Campo";
@@ -6,7 +7,8 @@ import ListaOpciones from "./ListOptions";
 import Modal from "../Modal";
 import { v4 as uuidv4 } from "uuid";
 
-const Formulario = ({ formaciones, agregarVideo, actualizarVideo, datos }) => {
+const Formulario = ({ datos }) => {
+  const { agregarVideo, actualizarVideo } = useContext(MainContext);
   const [urlVideo, updateUrlVideo] = useState(datos ? datos.urlVideo : "");
   const [imgVideo, updateImgVideo] = useState(datos ? datos.imgVideo : "");
   const [title, updateTitle] = useState(datos ? datos.title : "");
@@ -83,7 +85,6 @@ const Formulario = ({ formaciones, agregarVideo, actualizarVideo, datos }) => {
         <ListaOpciones
           valor={formacion}
           actualizarFormacion={updateFormacion}
-          formaciones={formaciones}
         />
         <button className="boton">{datos ? "Editar" : "Agregar"}</button>
       </form>
@@ -152,8 +153,5 @@ const ContainerForm = styled.section`
 `;
 
 Formulario.propTypes = {
-  formaciones: PropTypes.array,
-  agregarVideo: PropTypes.func,
-  actualizarVideo: PropTypes.func,
   datos: PropTypes.object,
 };

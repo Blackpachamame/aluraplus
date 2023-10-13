@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "./../context/MainContext";
 import styled from "styled-components";
 import { Formulario } from "./../components";
 import { motion } from "framer-motion";
@@ -10,7 +11,8 @@ function obtenerVideo(slice, videos) {
   return unVideo;
 }
 
-export default function EditVideo({ videosUse, actualizarVideo, formaciones }) {
+export default function EditVideo() {
+  const { videosUse } = useContext(MainContext);
   const video = obtenerVideo(14, videosUse)[0];
 
   return (
@@ -21,11 +23,7 @@ export default function EditVideo({ videosUse, actualizarVideo, formaciones }) {
       exit={{ opacity: 0 }}
     >
       <h1>Editar Video</h1>
-      <Formulario
-        formaciones={formaciones}
-        actualizarVideo={actualizarVideo}
-        datos={video}
-      />
+      <Formulario datos={video} />
     </StyledMain>
   );
 }
@@ -48,9 +46,3 @@ const StyledMain = styled.main`
     padding: 16px 0;
   }
 `;
-
-EditVideo.propTypes = {
-  videosUse: PropTypes.array,
-  actualizarVideo: PropTypes.func,
-  formaciones: PropTypes.array,
-};

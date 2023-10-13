@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
-const SliderComp = ({ formacion, videosUse }) => {
-  const sliderProject = videosUse.map((item) => {
+const SliderComp = ({ formacion, videosFormacion }) => {
+  const sliderProject = videosFormacion.map((item) => {
     return (
       <Link to={`/video/${item.id}`} key={item.id}>
         <StyledFigure className="project" $bgColor={formacion.color}>
@@ -148,5 +148,5 @@ SliderComp.propTypes = {
     icon: PropTypes.string,
     color: PropTypes.string,
   }),
-  videosUse: PropTypes.array,
+  videosFormacion: PropTypes.array,
 };
