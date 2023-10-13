@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Formulario } from "./../components";
+import { motion } from "framer-motion";
 
 function obtenerVideo(slice, videos) {
   const url = new URL(window.location).pathname;
@@ -13,7 +14,12 @@ export default function EditVideo({ videosUse, actualizarVideo, formaciones }) {
   const video = obtenerVideo(14, videosUse)[0];
 
   return (
-    <StyledMain>
+    <StyledMain
+      as={motion.main}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1>Editar Video</h1>
       <Formulario
         formaciones={formaciones}

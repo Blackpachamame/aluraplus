@@ -2,10 +2,16 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BsPencilFill, BsTrashFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 export default function ListVideos({ videosUse, eliminarVideo }) {
   return (
-    <StyledMain>
+    <StyledMain
+      as={motion.main}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1>Lista de Videos</h1>
       <div className="video__table-container">
         <StyledTable>

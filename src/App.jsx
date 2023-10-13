@@ -1,23 +1,12 @@
 import { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { Header, Footer, Busqueda } from "./components";
-import {
-  ListVideos,
-  Home,
-  Favoritos,
-  Video,
-  ListFormaciones,
-  AddVideo,
-  EditVideo,
-  Error404,
-  AddFormacion,
-  EditFormacion,
-} from "./pages";
 
 import { videos } from "./assets/data/videos";
 import { formaciones } from "./assets/data/formaciones";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 function App() {
   const [toggleSearch, setToggleSearch] = useState(false);
@@ -130,86 +119,18 @@ function App() {
           setToggleSearch={setToggleSearch}
         />
         <Header mostrarBarraBusqueda={mostrarBarraBusqueda} />
-        <Routes>
-          {/* Home */}
-          <Route
-            path="/"
-            element={
-              <Home videosUse={videosUse} formaciones={formacionesUse} />
-            }
-          />
-          {/* Favoritos */}
-          <Route
-            path="/favoritos"
-            element={
-              <Favoritos videosUse={videosUse} formaciones={formacionesUse} />
-            }
-          />
-          {/* Videos */}
-          <Route
-            path="/video/:id"
-            element={
-              <Video videosUse={videosUse} actualizarFav={actualizarFav} />
-            }
-          />
-          <Route
-            path="/video/lista"
-            element={
-              <ListVideos videosUse={videosUse} eliminarVideo={eliminarVideo} />
-            }
-          />
-          <Route
-            path="/video/agregar"
-            element={
-              <AddVideo
-                agregarVideo={agregarVideo}
-                formaciones={formacionesUse}
-              />
-            }
-          />
-          <Route
-            path="/video/editar/:id"
-            element={
-              <EditVideo
-                videosUse={videosUse}
-                actualizarVideo={actualizarVideo}
-                formaciones={formacionesUse}
-              />
-            }
-          />
-          {/* Formaciones */}
-          <Route
-            path="/formacion/lista"
-            element={
-              <ListFormaciones
-                formacionesUse={formacionesUse}
-                eliminarFormacion={eliminarFormacion}
-              />
-            }
-          />
-          <Route
-            path="/formacion/agregar"
-            element={
-              <AddFormacion
-                agregarFormacion={agregarFormacion}
-                formaciones={formacionesUse}
-              />
-            }
-          />
-          <Route
-            path="/formacion/editar/:id"
-            element={
-              <EditFormacion
-                videosUse={videosUse}
-                formaciones={formacionesUse}
-                actualizarFormacionVideo={actualizarFormacionVideo}
-                actualizarFormacion={actualizarFormacion}
-              />
-            }
-          />
-          {/* Error 404 */}
-          <Route path="*" element={<Error404 />} />
-        </Routes>
+        <AnimatedRoutes
+          videosUse={videosUse}
+          formacionesUse={formacionesUse}
+          agregarVideo={agregarVideo}
+          eliminarVideo={eliminarVideo}
+          actualizarVideo={actualizarVideo}
+          actualizarFormacionVideo={actualizarFormacionVideo}
+          actualizarFav={actualizarFav}
+          agregarFormacion={agregarFormacion}
+          eliminarFormacion={eliminarFormacion}
+          actualizarFormacion={actualizarFormacion}
+        />
         <Footer />
       </BrowserRouter>
     </StyledContainer>

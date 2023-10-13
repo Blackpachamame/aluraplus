@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "./../components";
 import { BsPlayFill, BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 function obtenerVideo(id, videos) {
   const unVideo = videos.filter((video) => video.id === id);
@@ -28,7 +29,12 @@ export default function Video({ videosUse, actualizarFav }) {
   };
 
   return (
-    <StyledContainer>
+    <StyledContainer
+      as={motion.main}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}

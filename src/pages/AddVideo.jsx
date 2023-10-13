@@ -1,10 +1,16 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Formulario } from "./../components";
+import { motion } from "framer-motion";
 
 export default function AddVideo({ agregarVideo, formaciones }) {
   return (
-    <StyledMain>
+    <StyledMain
+      as={motion.main}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1>Agregar Video</h1>
       <Formulario formaciones={formaciones} agregarVideo={agregarVideo} />
     </StyledMain>

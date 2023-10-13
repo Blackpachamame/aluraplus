@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Category, SliderTop, SliderVideos } from "./../components";
+import { motion } from "framer-motion";
 
 function buscandoAndo(videosUse, formaciones) {
   const arregloPosta = [];
@@ -15,7 +16,11 @@ function buscandoAndo(videosUse, formaciones) {
 export default function Home({ videosUse, formaciones }) {
   const formacionesConteo = buscandoAndo(videosUse, formaciones);
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <SliderTop />
       <Category formaciones={formaciones} />
       {formaciones.map((item, i) => (
@@ -25,7 +30,7 @@ export default function Home({ videosUse, formaciones }) {
           videosUse={formacionesConteo[i]}
         />
       ))}
-    </main>
+    </motion.main>
   );
 }
 

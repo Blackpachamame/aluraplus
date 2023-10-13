@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FormFormacion } from "./../components";
+import { motion } from "framer-motion";
 
 function obtenerFormacion(slice, formaciones) {
   const url = new URL(window.location).pathname;
@@ -18,7 +19,12 @@ export default function EditFormacion({
   const formacion = obtenerFormacion(18, formaciones)[0];
 
   return (
-    <StyledMain>
+    <StyledMain
+      as={motion.main}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1>Editar Formacion</h1>
       <FormFormacion
         datosFormaciones={formacion}

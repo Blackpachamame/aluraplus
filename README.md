@@ -37,6 +37,7 @@ Sus usuarios deberían poder:
 - React Icons
 - React Router
 - React Player
+- Framer Motion
 
 ### Lo que aprendí
 
@@ -54,6 +55,7 @@ Sus usuarios deberían poder:
 - [Dominando o Styled Components REACT](https://reactrouter.com/en/main) - Front Beginners.
 - [Working with React slick slider in React js and styled-components](https://reactrouter.com/en/main) - Milad Tech.
 - [Dropdown-Menu-in-React](https://youtu.be/HfZ7pdhS43s?si=VdshPytuxuiBMFkd) - TK - Click Outside to Close - React Hook.
+- [Tutorial Framer Motion](https://youtu.be/FdrEjwymzdY?si=dxbS67x7_1IuI1JE) - PedroTech - Page Transitions In React - React Router V6 and Framer Motion Tutorial.
 
 ## Autor
 
