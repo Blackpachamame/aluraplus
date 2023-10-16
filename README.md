@@ -17,7 +17,7 @@
 
 ### Desafío
 
-Este sitio es una mutación del desafío Aluraflix de Alura Latam Se modifico el diseño y se agregaron funcionalidades. En él tendrás sugerencias de videos de alura separados por formación.
+Este sitio es una mutación del desafío Aluraflix de Alura Latam para el curso de frontend del Grupo 5. Se modifico el diseño y se agregaron funcionalidades. En él tendrás sugerencias de videos de Alura separados por formación.
 
 Sus usuarios deberían poder:
 
