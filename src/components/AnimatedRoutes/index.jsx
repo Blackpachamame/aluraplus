@@ -16,7 +16,7 @@ import { AnimatePresence } from "framer-motion";
 export default function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {/* Home */}
         <Route path="/" element={<Home />} />
