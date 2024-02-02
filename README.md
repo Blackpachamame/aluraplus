@@ -25,7 +25,7 @@ Sus usuarios deberían poder:
 - Ver estados de desplazamiento para elementos interactivos
 - Agregar, editar y borrar videos o formaciones
 - Marcar videos como favoritos
-- Realizar una búsqueda (~~pendiente~~)
+- Realizar una búsqueda
 
 ## Mi Procedimiento
 
