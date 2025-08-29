@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { MainContext } from "./../../context/MainContext";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { arrowDown, arrowDownFocus } from "../../assets/images";
+import { useContext } from 'react';
+import { MainContext } from './../../context/MainContext';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { arrowDown, arrowDownFocus } from '../../assets/images';
 
 const ListaOpciones = ({ valor, actualizarFormacion }) => {
   const { formacionesUse } = useContext(MainContext);
@@ -20,8 +20,7 @@ const ListaOpciones = ({ valor, actualizarFormacion }) => {
         onChange={manejarCambio}
         required
         $arrowDorw={arrowDown}
-        $arrowDorwFocus={arrowDownFocus}
-      >
+        $arrowDorwFocus={arrowDownFocus}>
         <option value="" disabled defaultValue="" hidden>
           Seleccionar formación
         </option>
@@ -49,8 +48,8 @@ const StyledLista = styled.div`
 `;
 
 const StyledSelect = styled.select`
-  --arrow-down: url("${(props) => props.$arrowDorw}");
-  --arrow-down-focus: url("${(props) => props.$arrowDorwFocus}");
+  --arrow-down: url('${(props) => props.$arrowDorw}');
+  --arrow-down-focus: url('${(props) => props.$arrowDorwFocus}');
   height: 60px;
   font-family: var(--ff-body);
   font-size: 16px;

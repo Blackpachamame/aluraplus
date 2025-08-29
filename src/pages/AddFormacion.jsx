@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { FormFormacion } from "./../components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { FormFormacion } from './../components';
+import { motion } from 'framer-motion';
 
 export default function AddFormacion() {
   return (
@@ -8,8 +8,7 @@ export default function AddFormacion() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <h1>Agregar Formación</h1>
       <FormFormacion editar={false} />
     </StyledMain>

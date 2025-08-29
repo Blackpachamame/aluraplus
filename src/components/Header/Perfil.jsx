@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { avatar } from "../../assets/images";
+import { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { avatar } from '../../assets/images';
 
 export default function Perfil() {
   const [openPerfil, setOpenPerfil] = useState(false);
@@ -15,33 +15,33 @@ export default function Perfil() {
       }
     };
 
-    document.addEventListener("mousedown", handleMenuPerfil);
+    document.addEventListener('mousedown', handleMenuPerfil);
 
     return () => {
-      document.removeEventListener("mousedown", handleMenuPerfil);
+      document.removeEventListener('mousedown', handleMenuPerfil);
     };
   });
 
   const menu = [
     {
-      name: "Videos",
-      link: "/video/lista",
+      name: 'Videos',
+      link: '/video/lista',
     },
     {
-      name: "Nuevo video",
-      link: "/video/agregar",
+      name: 'Nuevo video',
+      link: '/video/agregar',
     },
     {
-      name: "Formaciones",
-      link: "/formacion/lista",
+      name: 'Formaciones',
+      link: '/formacion/lista',
     },
     {
-      name: "Nueva formación",
-      link: "/formacion/agregar",
+      name: 'Nueva formación',
+      link: '/formacion/agregar',
     },
     {
-      name: "Logout",
-      link: "/",
+      name: 'Logout',
+      link: '/',
     },
   ];
 

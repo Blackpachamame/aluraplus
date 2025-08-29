@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { logo, logoCircle } from "../../assets/images";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import styled from 'styled-components';
+import { logo, logoCircle } from '../../assets/images';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 export default function Footer() {
   return (
@@ -15,16 +15,14 @@ export default function Footer() {
           href="https://github.com/Blackpachamame"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Ver github"
-        >
+          aria-label="Ver github">
           <BsGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/marcos-travaglini/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Ver linkedin"
-        >
+          aria-label="Ver linkedin">
           <BsLinkedin />
         </a>
       </div>
@@ -41,7 +39,7 @@ const StyledFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   grid-template-columns: 250px auto 250px;
-  grid-template-areas: "texto logo redes";
+  grid-template-areas: 'texto logo redes';
   .textFooter {
     grid-area: texto;
     font-family: var(--ff-title);
@@ -74,8 +72,8 @@ const StyledFooter = styled.footer`
     grid-template-columns: auto auto;
     grid-template-rows: repeat(2, auto);
     grid-template-areas:
-      "logo texto"
-      "logo redes";
+      'logo texto'
+      'logo redes';
     .textFooter {
       text-align: end;
     }

@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
-import { MainContext } from "./context/MainContext";
-import GlobalStyle from "./GlobalStyle";
-import { BrowserRouter } from "react-router-dom";
-import styled from "styled-components";
-import { Header, Footer, Busqueda } from "./components";
-import AnimatedRoutes from "./components/AnimatedRoutes";
+import { useState, useEffect, useContext } from 'react';
+import { MainContext } from './context/MainContext';
+import GlobalStyle from './GlobalStyle';
+import { BrowserRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import { Header, Footer, Busqueda } from './components';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 function App() {
   const [toggleSearch, setToggleSearch] = useState(false);
@@ -16,16 +16,14 @@ function App() {
   const { videosUse, formacionesUse } = useContext(MainContext);
 
   useEffect(() => {
-    localStorage.setItem("videosUse", JSON.stringify(videosUse));
+    localStorage.setItem('videosUse', JSON.stringify(videosUse));
   }, [videosUse]);
   useEffect(() => {
-    localStorage.setItem("formacionesUse", JSON.stringify(formacionesUse));
+    localStorage.setItem('formacionesUse', JSON.stringify(formacionesUse));
   }, [formacionesUse]);
 
   return (
-    <StyledContainer
-      className={toggleSearch ? "header__nav--busca--visible" : ""}
-    >
+    <StyledContainer className={toggleSearch ? 'header__nav--busca--visible' : ''}>
       <GlobalStyle />
       <BrowserRouter>
         <Busqueda

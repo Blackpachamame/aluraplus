@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { MainContext } from "./../context/MainContext";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { BsPencilFill, BsTrashFill } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { useContext } from 'react';
+import { MainContext } from './../context/MainContext';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { BsPencilFill, BsTrashFill } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 export default function ListVideos() {
   const { videosUse, eliminarVideo } = useContext(MainContext);
@@ -12,8 +12,7 @@ export default function ListVideos() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <h1>Lista de Videos</h1>
       <div className="video__table-container">
         <StyledTable>
@@ -30,16 +29,10 @@ export default function ListVideos() {
                 <td>{video.title}</td>
                 <td>{video.formacion}</td>
                 <ContainerAcciones>
-                  <Link
-                    to={`/video/editar/${video.id}`}
-                    className="video__editar"
-                  >
+                  <Link to={`/video/editar/${video.id}`} className="video__editar">
                     <BsPencilFill />
                   </Link>
-                  <button
-                    onClick={() => eliminarVideo(video.id)}
-                    className="video__eliminar"
-                  >
+                  <button onClick={() => eliminarVideo(video.id)} className="video__eliminar">
                     <BsTrashFill />
                   </button>
                 </ContainerAcciones>

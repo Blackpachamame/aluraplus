@@ -1,21 +1,17 @@
-import { useState, useContext } from "react";
-import { MainContext } from "./../../context/MainContext";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Campo from "./Campo";
-import Modal from "../Modal";
-import { v4 as uuidv4 } from "uuid";
+import { useState, useContext } from 'react';
+import { MainContext } from './../../context/MainContext';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Campo from './Campo';
+import Modal from '../Modal';
+import { v4 as uuidv4 } from 'uuid';
 
 const FormFormacion = ({ editar, datosDeFormacion }) => {
-  const {
-    agregarFormacion,
-    actualizarFormacionVideo,
-    videosUse,
-    actualizarFormacion,
-  } = useContext(MainContext);
-  const [icon, updateIcon] = useState(editar ? datosDeFormacion.icon : "");
-  const [name, updateName] = useState(editar ? datosDeFormacion.name : "");
-  const [color, updateColor] = useState(editar ? datosDeFormacion.color : "");
+  const { agregarFormacion, actualizarFormacionVideo, videosUse, actualizarFormacion } =
+    useContext(MainContext);
+  const [icon, updateIcon] = useState(editar ? datosDeFormacion.icon : '');
+  const [name, updateName] = useState(editar ? datosDeFormacion.name : '');
+  const [color, updateColor] = useState(editar ? datosDeFormacion.color : '');
   const [openModal, setOpenModal] = useState(false);
 
   const handleCrear = (evento) => {
@@ -48,9 +44,7 @@ const FormFormacion = ({ editar, datosDeFormacion }) => {
   };
 
   function updateVideos() {
-    const videosAEditar = videosUse.filter(
-      (video) => video.formacion === datosDeFormacion.name
-    );
+    const videosAEditar = videosUse.filter((video) => video.formacion === datosDeFormacion.name);
     const formacion = name;
     actualizarFormacionVideo(videosAEditar, formacion);
   }
@@ -81,17 +75,13 @@ const FormFormacion = ({ editar, datosDeFormacion }) => {
           type="color"
           className="campo__color"
         />
-        <button className="boton">{editar ? "Editar" : "Agregar"}</button>
+        <button className="boton">{editar ? 'Editar' : 'Agregar'}</button>
       </form>
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        tipo={"formacion"}
-        text={
-          editar
-            ? "Datos editados correctamente"
-            : "Formacion agregada correctamente"
-        }
+        tipo={'formacion'}
+        text={editar ? 'Datos editados correctamente' : 'Formacion agregada correctamente'}
         editado={editar ? true : false}
       />
     </ContainerForm>

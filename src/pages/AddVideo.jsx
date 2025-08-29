@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Formulario } from "./../components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { Formulario } from './../components';
+import { motion } from 'framer-motion';
 
 export default function AddVideo() {
   return (
@@ -8,8 +8,7 @@ export default function AddVideo() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <h1>Agregar Video</h1>
       <Formulario />
     </StyledMain>

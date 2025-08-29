@@ -1,17 +1,10 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Campo = ({
-  label,
-  placeholder,
-  required,
-  valor,
-  actualizarValor,
-  type,
-}) => {
+const Campo = ({ label, placeholder, required, valor, actualizarValor, type }) => {
   const placeholderModificado = `${placeholder}...`;
 
-  const tipo = type ? type : "text";
+  const tipo = type ? type : 'text';
 
   const manejarCambio = (event) => {
     actualizarValor(event.target.value);
@@ -20,7 +13,7 @@ const Campo = ({
   return (
     <StyledCampo className={`campo campo-${type}`}>
       <label htmlFor={label}>{label}</label>
-      {tipo === "textarea" ? (
+      {tipo === 'textarea' ? (
         <textarea
           id={label}
           name={label}
@@ -35,7 +28,7 @@ const Campo = ({
           name={label}
           placeholder={placeholderModificado}
           required={required}
-          value={valor === "" && type === "color" ? "#000000" : valor}
+          value={valor === '' && type === 'color' ? '#000000' : valor}
           onChange={manejarCambio}
           type={tipo}
         />
@@ -87,7 +80,7 @@ const StyledCampo = styled.div`
       border-bottom: 2px solid var(--color-secondary);
     }
   }
-  input[type="color"] {
+  input[type='color'] {
     width: 100%;
     padding: 0;
     border: none;

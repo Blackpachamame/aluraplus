@@ -1,14 +1,11 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import SliderComp from "./SliderComp";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import SliderComp from './SliderComp';
 
 const SliderVideos = ({ formacion, videosFormacion }) => {
   return (
     <Container className="slider__videos">
-      <StyledTitle
-        id={formacion.name.replace(/\s+/g, "").toLowerCase()}
-        color={formacion.color}
-      >
+      <StyledTitle id={formacion.name.replace(/\s+/g, '').toLowerCase()} color={formacion.color}>
         <img src={formacion.icon} alt="" width="30" height="30" />
         <span>{formacion.name}</span>
       </StyledTitle>
@@ -39,18 +36,14 @@ const StyledTitle = styled.h2`
     position: relative;
   }
   span:before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -2px;
     width: 100%;
     left: 0;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(
-      130deg,
-      var(--color-category),
-      var(--color-black-dark) 90%
-    );
+    background: linear-gradient(130deg, var(--color-category), var(--color-black-dark) 90%);
   }
   @media (max-width: 990px) {
     margin-bottom: 0;

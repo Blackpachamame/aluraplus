@@ -48,14 +48,14 @@ Sus usuarios deberían poder:
 
 - [React Slick](https://react-slick.neostack.com/docs/get-started) - Documentación - React slick es un componente de carrusel creado con React.
 - [React Icons](https://react-icons.github.io/react-icons) - Incluya íconos populares en sus proyectos de React fácilmente con react-icons, que utiliza importaciones de ES6 que le permiten incluir solo los íconos que utiliza su proyecto.
-- [React Player](https://github.com/CookPete/react-player) - Documentación - Un componente de React para reproducir una variedad de URL, incluidas rutas de archivos, YouTube, etc.
-- [React Router](https://reactrouter.com/en/main) - Documentación - Rutas con React.
-- [Curso React Router 6](https://youtu.be/9w33u7hBWyk?si=nt0idt4n7D8wpOOk) - Jonmircha.
-- [Guía de Vite para principiantes](https://youtu.be/YEQ-uMGpQMY?si=IzD57XHDQGJMhkNQ) - FalconMasters.
-- [Dominando o Styled Components REACT](https://reactrouter.com/en/main) - Front Beginners.
-- [Working with React slick slider in React js and styled-components](https://reactrouter.com/en/main) - Milad Tech.
-- [Dropdown-Menu-in-React](https://youtu.be/HfZ7pdhS43s?si=VdshPytuxuiBMFkd) - TK - Click Outside to Close - React Hook.
-- [Tutorial Framer Motion](https://youtu.be/FdrEjwymzdY?si=dxbS67x7_1IuI1JE) - PedroTech - Page Transitions In React - React Router V6 and Framer Motion Tutorial.
+- [React Player](https://github.com/cookpete/react-player) - Documentación - Un componente de React para reproducir una variedad de URL, incluidas rutas de archivos, YouTube, etc.
+- [React Router](https://reactrouter.com/home) - Documentación - Rutas con React.
+- [Curso React Router 6](https://www.youtube.com/watch?v=9w33u7hBWyk) - Jonmircha.
+- [Guía de Vite para principiantes](https://www.youtube.com/watch?v=YEQ-uMGpQMY) - FalconMasters.
+- [Dominando o Styled Components REACT](https://www.youtube.com/watch?v=Mp1NphMm7YU) - Front Beginners.
+- [Working with React slick slider in React js and styled-components](https://www.youtube.com/watch?v=0n8187o6bJI) - Milad Tech.
+- [Dropdown-Menu-in-React](https://www.youtube.com/watch?v=HfZ7pdhS43s) - TK - Click Outside to Close - React Hook.
+- [Tutorial Framer Motion](https://www.youtube.com/watch?v=FdrEjwymzdY) - PedroTech - Page Transitions In React - React Router V6 and Framer Motion Tutorial.
 
 ## Autor
 

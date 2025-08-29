@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from 'react-router-dom';
 import {
   ListVideos,
   Home,
@@ -10,8 +10,8 @@ import {
   Error404,
   AddFormacion,
   EditFormacion,
-} from "../../pages";
-import { AnimatePresence } from "framer-motion";
+} from '../../pages';
+import { AnimatePresence } from 'framer-motion';
 
 export default function AnimatedRoutes() {
   const location = useLocation();

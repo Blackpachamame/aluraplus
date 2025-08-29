@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
-import { MainContext } from "./../context/MainContext";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { Modal } from "./../components";
-import { BsPlayFill, BsFillHeartFill, BsHeart } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { useState, useContext } from 'react';
+import { MainContext } from './../context/MainContext';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { Modal } from './../components';
+import { BsPlayFill, BsFillHeartFill, BsHeart } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 function obtenerVideo(id, videos) {
   const unVideo = videos.filter((video) => video.id === id);
@@ -34,8 +34,7 @@ export default function Video() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
@@ -53,10 +52,7 @@ export default function Video() {
           <button onClick={goBack} className="video__volver">
             Volver
           </button>
-          <button
-            className="video__favoritos"
-            onClick={() => toggleFav(video, favorito)}
-          >
+          <button className="video__favoritos" onClick={() => toggleFav(video, favorito)}>
             {favorito ? <BsFillHeartFill /> : <BsHeart />}
           </button>
         </ContainerButtons>

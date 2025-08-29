@@ -1,16 +1,11 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-const ListBusqueda = ({
-  results,
-  setResults,
-  setBusqueda,
-  setToggleSearch,
-}) => {
+const ListBusqueda = ({ results, setResults, setBusqueda, setToggleSearch }) => {
   const handleLink = () => {
     setResults([]);
-    setBusqueda("");
+    setBusqueda('');
     setToggleSearch(false);
   };
 
@@ -18,11 +13,7 @@ const ListBusqueda = ({
     <StyledResult>
       {results.map((result) => {
         return (
-          <Link
-            to={`/video/${result.id}`}
-            key={result.id}
-            onClick={() => handleLink()}
-          >
+          <Link to={`/video/${result.id}`} key={result.id} onClick={() => handleLink()}>
             {result.title}
           </Link>
         );

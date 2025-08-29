@@ -1,21 +1,18 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 function FormacionItem({ name, color, icon }) {
   return (
     <StyledCategoryItem>
       <StyledCategory>
-        <StyledCategoryLink href={"#" + name.replace(/\s+/g, "").toLowerCase()}>
+        <StyledCategoryLink href={'#' + name.replace(/\s+/g, '').toLowerCase()}>
           <figure
             style={{
-              backgroundColor: color + "30",
-            }}
-          >
+              backgroundColor: color + '30',
+            }}>
             <img src={icon} alt={name} width={30} height={30} />
           </figure>
-          <StyledNameCategory style={{ color: color }}>
-            {name}
-          </StyledNameCategory>
+          <StyledNameCategory style={{ color: color }}>{name}</StyledNameCategory>
         </StyledCategoryLink>
       </StyledCategory>
     </StyledCategoryItem>
@@ -48,16 +45,12 @@ const StyledCategory = styled.div`
   }
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(
-      45deg,
-      rgb(9 9 16) 0%,
-      rgba(5, 29, 59, 1) 100%
-    );
+    background-image: linear-gradient(45deg, rgb(9 9 16) 0%, rgba(5, 29, 59, 1) 100%);
     z-index: -1;
     transition: opacity 0.5s linear;
     opacity: 0;

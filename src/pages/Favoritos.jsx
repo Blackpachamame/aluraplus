@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { MainContext } from "./../context/MainContext";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useContext } from 'react';
+import { MainContext } from './../context/MainContext';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function colorFormacion(formaciones, video) {
-  const color = formaciones.find(
-    (formacion) => formacion.name === video.formacion
-  );
+  const color = formaciones.find((formacion) => formacion.name === video.formacion);
   return color.color;
 }
 
@@ -24,12 +22,9 @@ export default function Favoritos() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <h1>Favoritos</h1>
-      <StyledContainer
-        className={arrayFavoritos.length > 0 ? "container__favoritos" : ""}
-      >
+      <StyledContainer className={arrayFavoritos.length > 0 ? 'container__favoritos' : ''}>
         {arrayFavoritos.length > 0 ? (
           videosUse.map((video) => {
             return (
@@ -38,8 +33,7 @@ export default function Favoritos() {
                   <Link to={`/video/${video.id}`}>
                     <StyledFigure
                       className="project"
-                      $bgColor={colorFormacion(formacionesUse, video)}
-                    >
+                      $bgColor={colorFormacion(formacionesUse, video)}>
                       <img src={video.imgVideo} alt={video.title} />
                     </StyledFigure>
                   </Link>

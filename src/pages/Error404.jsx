@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { error404 } from "../assets/images";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { error404 } from '../assets/images';
+import { motion } from 'framer-motion';
 
 export default function Error404() {
   return (
@@ -9,8 +9,7 @@ export default function Error404() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <figure>
         <img src={error404} alt="error 404" />
       </figure>

@@ -1,27 +1,36 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import ReactPlayer from "react-player/youtube";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 
 export default function Modal({ open, onClose, url, tipo, text, editado }) {
-  const type = tipo ? tipo : "text";
+  const type = tipo ?? 'text';
+
   if (!open) return null;
   return (
-    <ContainerModal onClick={type === "video" ? onClose : null}>
-      {type === "video" ? (
+    <ContainerModal onClick={type === 'video' ? onClose : null}>
+      {type === 'video' ? (
         <div
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="modalContainer"
-        >
+          className="modalContainer">
           <ReactPlayer
-            className="video__play"
-            url={url}
-            width="100%"
-            height="100%"
-            playing={true}
-            controls={true}
+            src={url}
+            playing
+            playsInline // iOS inline
+            controls
+            style={{ width: '100%', height: 'auto', aspectRatio: '16/9' }}
+            config={{
+              youtube: {
+                origin: window.location.origin, // ej: http://localhost:5173 en dev
+                enablejsapi: 1,
+                rel: 0,
+                modestbranding: 1,
+                playsinline: 1,
+                hl: 'es-419',
+              },
+            }}
           />
         </div>
       ) : (
@@ -33,11 +42,10 @@ export default function Modal({ open, onClose, url, tipo, text, editado }) {
             </Link>
             {editado ? (
               <Link
-                to={type === "formacion" ? "/formacion/lista" : "/video/lista"}
+                to={type === 'formacion' ? '/formacion/lista' : '/video/lista'}
                 className="video__agregar"
-                onClick={onClose}
-              >
-                {type === "formacion" ? "Lista formaciones" : "Lista videos"}
+                onClick={onClose}>
+                {type === 'formacion' ? 'Lista formaciones' : 'Lista videos'}
               </Link>
             ) : (
               <button className="video__agregar" onClick={onClose}>
@@ -55,9 +63,8 @@ const ContainerModal = styled.div`
   width: 100vw;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  right: 0;
-  top: 0;
+  position: fixed;
+  inset: 0;
   z-index: 1;
 
   .containerBtn {

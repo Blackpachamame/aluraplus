@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { MainContext } from "./../context/MainContext";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { BsPencilFill, BsTrashFill } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { useContext } from 'react';
+import { MainContext } from './../context/MainContext';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { BsPencilFill, BsTrashFill } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 export default function ListFormaciones() {
   const { formacionesUse, eliminarFormacion } = useContext(MainContext);
@@ -12,8 +12,7 @@ export default function ListFormaciones() {
       as={motion.main}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+      exit={{ opacity: 0 }}>
       <h1>Lista de Formaciones</h1>
       <div className="formacion__table-container">
         <StyledTable>
@@ -32,16 +31,12 @@ export default function ListFormaciones() {
                   <img src={formacion.icon} alt="" width="30px" height="30px" />
                 </td>
                 <ContainerAcciones>
-                  <Link
-                    to={`/formacion/editar/${formacion.id}`}
-                    className="formacion__editar"
-                  >
+                  <Link to={`/formacion/editar/${formacion.id}`} className="formacion__editar">
                     <BsPencilFill />
                   </Link>
                   <button
                     onClick={() => eliminarFormacion(formacion.id)}
-                    className="formacion__eliminar"
-                  >
+                    className="formacion__eliminar">
                     <BsTrashFill />
                   </button>
                 </ContainerAcciones>

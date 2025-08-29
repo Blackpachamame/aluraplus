@@ -1,21 +1,19 @@
-import { useState, useContext } from "react";
-import { MainContext } from "./../../context/MainContext";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Campo from "./Campo";
-import ListaOpciones from "./ListOptions";
-import Modal from "../Modal";
-import { v4 as uuidv4 } from "uuid";
+import { useState, useContext } from 'react';
+import { MainContext } from './../../context/MainContext';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Campo from './Campo';
+import ListaOpciones from './ListOptions';
+import Modal from '../Modal';
+import { v4 as uuidv4 } from 'uuid';
 
 const Formulario = ({ datos }) => {
   const { agregarVideo, actualizarVideo } = useContext(MainContext);
-  const [urlVideo, updateUrlVideo] = useState(datos ? datos.urlVideo : "");
-  const [imgVideo, updateImgVideo] = useState(datos ? datos.imgVideo : "");
-  const [title, updateTitle] = useState(datos ? datos.title : "");
-  const [descripcion, updateDescripcion] = useState(
-    datos ? datos.descripcion : ""
-  );
-  const [formacion, updateFormacion] = useState(datos ? datos.formacion : "");
+  const [urlVideo, updateUrlVideo] = useState(datos ? datos.urlVideo : '');
+  const [imgVideo, updateImgVideo] = useState(datos ? datos.imgVideo : '');
+  const [title, updateTitle] = useState(datos ? datos.title : '');
+  const [descripcion, updateDescripcion] = useState(datos ? datos.descripcion : '');
+  const [formacion, updateFormacion] = useState(datos ? datos.formacion : '');
   const [openModal, setOpenModal] = useState(false);
 
   const handleCrear = (evento) => {
@@ -82,20 +80,13 @@ const Formulario = ({ datos }) => {
           actualizarValor={updateDescripcion}
           type="textarea"
         />
-        <ListaOpciones
-          valor={formacion}
-          actualizarFormacion={updateFormacion}
-        />
-        <button className="boton">{datos ? "Editar" : "Agregar"}</button>
+        <ListaOpciones valor={formacion} actualizarFormacion={updateFormacion} />
+        <button className="boton">{datos ? 'Editar' : 'Agregar'}</button>
       </form>
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        text={
-          datos
-            ? "Datos editados correctamente"
-            : "Video agregado correctamente"
-        }
+        text={datos ? 'Datos editados correctamente' : 'Video agregado correctamente'}
         editado={datos ? true : false}
       />
     </ContainerForm>

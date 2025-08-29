@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import ListBusqueda from "./ListBusqueda";
-import { BsSearch } from "react-icons/bs";
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import ListBusqueda from './ListBusqueda';
+import { BsSearch } from 'react-icons/bs';
 
 export default function Busqueda({ videosUse, toggleSearch, setToggleSearch }) {
-  const [busqueda, setBusqueda] = useState("");
+  const [busqueda, setBusqueda] = useState('');
   const [results, setResults] = useState([]);
 
   let searchRef = useRef();
@@ -17,10 +17,10 @@ export default function Busqueda({ videosUse, toggleSearch, setToggleSearch }) {
       }
     };
 
-    document.addEventListener("mousedown", handleMenuPerfil);
+    document.addEventListener('mousedown', handleMenuPerfil);
 
     return () => {
-      document.removeEventListener("mousedown", handleMenuPerfil);
+      document.removeEventListener('mousedown', handleMenuPerfil);
     };
   });
 
@@ -29,9 +29,7 @@ export default function Busqueda({ videosUse, toggleSearch, setToggleSearch }) {
     setBusqueda(valorInput);
     const filteredVideos =
       valorInput.length > 0
-        ? videosUse.filter((video) =>
-            video.title.toUpperCase().includes(valorInput.toUpperCase())
-          )
+        ? videosUse.filter((video) => video.title.toUpperCase().includes(valorInput.toUpperCase()))
         : [];
     setResults(filteredVideos);
   };
@@ -47,7 +45,7 @@ export default function Busqueda({ videosUse, toggleSearch, setToggleSearch }) {
             onChange={(e) => handleChange(e)}
             type="search"
           />
-          <BsSearch aria-label="Search" style={{ fontSize: "1.5rem" }} />
+          <BsSearch aria-label="Search" style={{ fontSize: '1.5rem' }} />
         </ContainerInput>
       </StyledBusqueda>
 

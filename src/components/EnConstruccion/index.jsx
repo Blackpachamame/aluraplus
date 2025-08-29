@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BsTools } from "react-icons/bs";
+import styled from 'styled-components';
+import { BsTools } from 'react-icons/bs';
 
 export default function EnConstruccion() {
   return (

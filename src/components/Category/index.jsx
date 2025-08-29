@@ -1,21 +1,14 @@
-import { useContext } from "react";
-import { MainContext } from "./../../context/MainContext";
-import styled from "styled-components";
-import FormacionItem from "./FormacionItem";
+import { useContext } from 'react';
+import { MainContext } from './../../context/MainContext';
+import styled from 'styled-components';
+import FormacionItem from './FormacionItem';
 
 export default function Category() {
   const { formacionesUse } = useContext(MainContext);
   return (
     <CategoryContainer>
       {formacionesUse.map((item) => {
-        return (
-          <FormacionItem
-            key={item.id}
-            name={item.name}
-            color={item.color}
-            icon={item.icon}
-          />
-        );
+        return <FormacionItem key={item.id} name={item.name} color={item.color} icon={item.icon} />;
       })}
     </CategoryContainer>
   );

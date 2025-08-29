@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { logo } from "../../assets/images";
-import { MdOutlineSlowMotionVideo } from "react-icons/md";
+import styled from 'styled-components';
+import { logo } from '../../assets/images';
+import { MdOutlineSlowMotionVideo } from 'react-icons/md';
 
 export default function Logo() {
   return (

@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
 const SliderComp = ({ formacion, videosFormacion }) => {
   const sliderProject = videosFormacion.map((item) => {
@@ -23,7 +23,7 @@ const SliderComp = ({ formacion, videosFormacion }) => {
   };
 
   var settings = {
-    className: "center",
+    className: 'center',
     centerMode: true,
     dots: false,
     infinite: true,
@@ -32,7 +32,7 @@ const SliderComp = ({ formacion, videosFormacion }) => {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,
-    focusOnSelect: true,
+    // focusOnSelect: true,
     responsive: [
       {
         breakpoint: 990,
@@ -67,7 +67,7 @@ const SliderComp = ({ formacion, videosFormacion }) => {
     slidesToScroll: 1,
     initialSlide: initialSlideLength(),
     arrows: true,
-    focusOnSelect: true,
+    // focusOnSelect: true,
     responsive: [
       {
         breakpoint: 990,
@@ -97,10 +97,7 @@ const SliderComp = ({ formacion, videosFormacion }) => {
   return (
     <ContainerSlider>
       {longitudSlider < 4 ? (
-        <Slider
-          {...settingsShort}
-          className={longitudSlider < 2 ? "center mini" : "center short"}
-        >
+        <Slider {...settingsShort} className={longitudSlider < 2 ? 'center mini' : 'center short'}>
           {sliderProject}
         </Slider>
       ) : (

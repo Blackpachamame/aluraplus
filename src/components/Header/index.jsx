@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import HeaderItem from "./HeaderItem";
-import Logo from "./Logo";
-import Perfil from "./Perfil";
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import HeaderItem from './HeaderItem';
+import Logo from './Logo';
+import Perfil from './Perfil';
 
 const Header = ({ mostrarBarraBusqueda }) => {
   const [toggle, setToggle] = useState(false);
@@ -16,10 +16,10 @@ const Header = ({ mostrarBarraBusqueda }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleMenuDownResponsive);
+    document.addEventListener('mousedown', handleMenuDownResponsive);
 
     return () => {
-      document.removeEventListener("mousedown", handleMenuDownResponsive);
+      document.removeEventListener('mousedown', handleMenuDownResponsive);
     };
   });
 
@@ -29,17 +29,11 @@ const Header = ({ mostrarBarraBusqueda }) => {
         <div>
           <Logo />
           <StyledUnorderedList>
-            <HeaderItem
-              mostrarBarraBusqueda={mostrarBarraBusqueda}
-              iconDotsVertical="false"
-            />
+            <HeaderItem mostrarBarraBusqueda={mostrarBarraBusqueda} iconDotsVertical="false" />
           </StyledUnorderedList>
           <StyledUnorderedListResponsive ref={menuResponsive}>
             <StyledToggle onClick={() => setToggle(!toggle)}>
-              <HeaderItem
-                mostrarBarraBusqueda={mostrarBarraBusqueda}
-                iconDotsVertical="true"
-              />
+              <HeaderItem mostrarBarraBusqueda={mostrarBarraBusqueda} iconDotsVertical="true" />
               {toggle ? (
                 <StyledDropdown>
                   <HeaderItem
